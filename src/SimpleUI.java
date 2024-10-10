@@ -17,39 +17,30 @@ public class SimpleUI {
 
         // Create a JPanel to hold the components
         JPanel panel = new JPanel();
+        panel.setLayout(null); // Set to null for custom positioning
 
         // Add the panel to the frame
         frame.add(panel);
 
-        // Place components inside the panel
-        placeComponents(panel);
-
-        // Set the frame to be visible
-        frame.setVisible(true);
-    }
-
-    private static void placeComponents(JPanel panel) {
-        // Set the layout manager for the panel
-        panel.setLayout(null);
-
         // Create a JLabel
         JLabel label = new JLabel("Enter text:");
-        label.setBounds(10, 20, 80, 25);
+        label.setBounds(20, 20, 100, 25); // Adjusted position
         panel.add(label);
 
         // Create a text field
         JTextField textField = new JTextField(20);
-        textField.setBounds(100, 20, 165, 25);
+        textField.setBounds(120, 20, 200, 25); // Adjusted width and position
         panel.add(textField);
 
         // Create a button
-        JButton button = new JButton("Click Me");
-        button.setBounds(10, 80, 100, 25);
+        JButton button = new JButton("Submit");
+        button.setBounds(120, 60, 100, 30); // Adjusted position and size
         panel.add(button);
 
         // Create a second label to display the result
         JLabel resultLabel = new JLabel("");
-        resultLabel.setBounds(10, 110, 300, 25);
+        resultLabel.setBounds(20, 100, 350, 25); // Adjusted width to fit the frame
+        resultLabel.setForeground(Color.BLUE); // Added color to differentiate result label
         panel.add(resultLabel);
 
         // Add action listener for the button
@@ -61,5 +52,8 @@ public class SimpleUI {
                 resultLabel.setText("You entered: " + inputText);
             }
         });
+
+        // Set the frame to be visible
+        frame.setVisible(true);
     }
 }
